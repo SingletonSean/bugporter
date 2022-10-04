@@ -10,13 +10,22 @@ using Newtonsoft.Json;
 
 namespace Bugporter.API
 {
-    public static class Function1
+    public class Function1
     {
+        private readonly HelloWorld _helloWorld;
+
+        public Function1(HelloWorld helloWorld)
+        {
+            _helloWorld = helloWorld;
+        }
+
         [FunctionName("Function1")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
+            _helloWorld.Run();
+
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
