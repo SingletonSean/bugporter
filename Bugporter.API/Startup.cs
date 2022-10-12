@@ -33,7 +33,7 @@ namespace Bugporter.API
                 Credentials = new Credentials(gitHubToken)
             });
 
-            builder.Services.AddSingleton<CreateGitHubIssueQuery>();
+            builder.Services.AddSingleton<CreateGitHubIssueCommand>();
         }
     }
 }

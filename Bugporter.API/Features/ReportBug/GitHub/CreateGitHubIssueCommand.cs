@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Bugporter.API.Features.ReportBug.GitHub
 {
-    public class CreateGitHubIssueQuery
+    public class CreateGitHubIssueCommand
     {
         private readonly GitHubClient _gitHubClient;
         private readonly GitHubRepositoryOptions _gitHubRepositoryOptions;
-        private readonly ILogger<CreateGitHubIssueQuery> _logger;
+        private readonly ILogger<CreateGitHubIssueCommand> _logger;
 
-        public CreateGitHubIssueQuery(
+        public CreateGitHubIssueCommand(
             GitHubClient gitHubClient, 
             IOptions<GitHubRepositoryOptions> gitHubRepositoryOptions, 
-            ILogger<CreateGitHubIssueQuery> logger)
+            ILogger<CreateGitHubIssueCommand> logger)
         {
             _gitHubClient = gitHubClient;
             _gitHubRepositoryOptions = gitHubRepositoryOptions.Value;
