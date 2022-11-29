@@ -49,7 +49,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\SignUp\SignUpView.xaml.cs">
+	    <DependentUpon>SignUpView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Pages\ReportBug\ReportBugView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SignUp\SignUpView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SignIn\SignInView.xaml">

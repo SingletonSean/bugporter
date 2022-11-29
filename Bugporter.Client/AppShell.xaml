@@ -5,16 +5,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:reportbug="clr-namespace:Bugporter.Client.Pages.ReportBug"
     xmlns:signin="clr-namespace:Bugporter.Client.Pages.SignIn"
+    xmlns:signup="clr-namespace:Bugporter.Client.Pages.SignUp"
     Shell.FlyoutBehavior="Disabled">
-
-    <ShellContent
-        Title="Sign In"
-        ContentTemplate="{DataTemplate signin:SignInView}"
-        Route="SignIn" />
 
     <ShellContent
         Title="Report Bug"
         ContentTemplate="{DataTemplate reportbug:ReportBugView}"
         Route="ReportBug" />
+
+    <ShellContent
+        Title="Sign Up"
+        ContentTemplate="{DataTemplate signup:SignUpView}"
+        Route="SignUp" />
+
+    <ShellContent
+        Title="Sign In"
+        ContentTemplate="{DataTemplate signin:SignInView}"
+        Route="SignIn" />
 
 </Shell>
