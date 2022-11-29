@@ -52,6 +52,9 @@
 	  <MauiXaml Update="Pages\ReportBug\ReportBugView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\SignIn\SignInView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
