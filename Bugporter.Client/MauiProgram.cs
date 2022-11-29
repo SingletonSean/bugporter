@@ -1,4 +1,6 @@
-﻿namespace Bugporter.Client
+﻿using Bugporter.Client.Pages.ReportBug;
+
+namespace Bugporter.Client
 {
     public static class MauiProgram
     {
@@ -12,6 +14,10 @@
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddTransient<ReportBugViewModel>();
+            builder.Services.AddTransient<ReportBugView>(
+                s => new ReportBugView(s.GetRequiredService<ReportBugViewModel>()));
 
             return builder.Build();
         }
