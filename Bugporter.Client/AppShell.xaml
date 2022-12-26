@@ -6,7 +6,8 @@
     xmlns:reportbug="clr-namespace:Bugporter.Client.Pages.ReportBug"
     xmlns:signin="clr-namespace:Bugporter.Client.Pages.SignIn"
     xmlns:signup="clr-namespace:Bugporter.Client.Pages.SignUp"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
 
     <ShellContent
         Title="Report Bug"

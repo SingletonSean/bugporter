@@ -1,4 +1,5 @@
-﻿using Bugporter.Client.Pages.ReportBug;
+﻿using Bugporter.Client.Features.ReportBug;
+using Bugporter.Client.Pages.ReportBug;
 using Bugporter.Client.Pages.SignIn;
 using Bugporter.Client.Pages.SignUp;
 
@@ -17,6 +18,7 @@ namespace Bugporter.Client
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddTransient<ReportBugFormViewModel>();
             builder.Services.AddTransient<ReportBugViewModel>();
             builder.Services.AddTransient<ReportBugView>(
                 s => new ReportBugView(s.GetRequiredService<ReportBugViewModel>()));

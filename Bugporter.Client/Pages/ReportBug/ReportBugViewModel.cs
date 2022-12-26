@@ -1,4 +1,5 @@
-﻿using Bugporter.Client.Shared.ViewModels;
+﻿using Bugporter.Client.Features.ReportBug;
+using Bugporter.Client.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,18 +11,11 @@ namespace Bugporter.Client.Pages.ReportBug
 {
     public class ReportBugViewModel : ViewModelBase
     {
-        private string _value;
-        public string Value
+        public ReportBugFormViewModel ReportBugFormViewModel { get; }
+
+        public ReportBugViewModel(ReportBugFormViewModel reportBugFormViewModel)
         {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                _value = value;
-                OnPropertyChanged(nameof(Value));
-            }
+            ReportBugFormViewModel = reportBugFormViewModel;
         }
     }
 }

@@ -3,12 +3,11 @@
     x:Class="Bugporter.Client.Pages.ReportBug.ReportBugView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="ReportBugView">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="{Binding Value}"
-            VerticalOptions="Center" />
-        <Entry Placeholder="Enter a value" Text="{Binding Value}" />
-    </VerticalStackLayout>
+    xmlns:reportbug="clr-namespace:Bugporter.Client.Features.ReportBug">
+    <ScrollView>
+        <VerticalStackLayout Padding="25" MaximumWidthRequest="1000">
+            <Label FontSize="Large" Text="Report a Bug" />
+            <reportbug:ReportBugFormView Margin="0,25,0,0" BindingContext="{Binding ReportBugFormViewModel}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
