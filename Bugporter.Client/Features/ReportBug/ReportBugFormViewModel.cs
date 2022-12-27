@@ -39,5 +39,10 @@ namespace Bugporter.Client.Features.ReportBug
 		}
 
         public ICommand ReportBugCommand { get; }
+
+		public ReportBugFormViewModel()
+		{
+			ReportBugCommand = new ReportBugCommand(this);
+		}
     }
 }
