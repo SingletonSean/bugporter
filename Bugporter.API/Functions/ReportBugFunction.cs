@@ -38,15 +38,15 @@ namespace Bugporter.API
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "bugs")] ReportBugRequest request,
             HttpRequest httpRequest)
         {
-            AuthenticateResult authenticationResult = await _authenticationHandler.HandleAuthenticateAsync(httpRequest);
+            //AuthenticateResult authenticationResult = await _authenticationHandler.HandleAuthenticateAsync(httpRequest);
 
-            if (!authenticationResult.Succeeded)
-            {
-                return new UnauthorizedResult();
-            }
+            //if (!authenticationResult.Succeeded)
+            //{
+            //    return new UnauthorizedResult();
+            //}
 
-            string userId = authenticationResult.Principal.FindFirst(FirebaseUserClaimType.ID).Value;
-            _logger.LogInformation("Authenticated user {UserId}", userId);
+            //string userId = authenticationResult.Principal.FindFirst(FirebaseUserClaimType.ID).Value;
+            //_logger.LogInformation("Authenticated user {UserId}", userId);
 
             NewBug newBug = new NewBug(request.Summary, request.Description);
 

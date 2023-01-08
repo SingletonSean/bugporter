@@ -1,7 +1,9 @@
 ﻿using Bugporter.Client.Features.ReportBug;
+using Bugporter.Client.Features.ReportBug.API;
 using Bugporter.Client.Pages.ReportBug;
 using Bugporter.Client.Pages.SignIn;
 using Bugporter.Client.Pages.SignUp;
+using Refit;
 
 namespace Bugporter.Client
 {
@@ -18,6 +20,9 @@ namespace Bugporter.Client
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services
+                .AddRefitClient<IReportBugApiCommand>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:7071/api"));
             builder.Services.AddTransient<ReportBugViewModel>();
             builder.Services.AddTransient<ReportBugFormViewModel>();
             builder.Services.AddTransient<ReportBugView>(

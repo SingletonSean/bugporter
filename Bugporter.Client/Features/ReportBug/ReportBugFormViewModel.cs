@@ -1,4 +1,5 @@
-﻿using Bugporter.Client.Shared.ViewModels;
+﻿using Bugporter.Client.Features.ReportBug.API;
+using Bugporter.Client.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +41,9 @@ namespace Bugporter.Client.Features.ReportBug
 
         public ICommand ReportBugCommand { get; }
 
-		public ReportBugFormViewModel()
+		public ReportBugFormViewModel(IReportBugApiCommand reportBugApiCommand)
 		{
-			ReportBugCommand = new ReportBugCommand(this);
+			ReportBugCommand = new ReportBugCommand(this, reportBugApiCommand);
 		}
     }
 }
