@@ -1,5 +1,6 @@
 ﻿using Bugporter.Client.Features.ReportBug.API;
 using Bugporter.Client.Shared.Commands;
+using Bugporter.Core.Features.ReportBug;
 using System;
 using System.Collections.Generic;
 using System.Linq;

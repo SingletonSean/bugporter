@@ -54,6 +54,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Bugporter.Core\Bugporter.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Pages\SignUp\SignUpView.xaml.cs">
 	    <DependentUpon>SignUpView.xaml</DependentUpon>
 	  </Compile>
