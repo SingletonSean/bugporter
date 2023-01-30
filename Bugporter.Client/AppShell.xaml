@@ -10,14 +10,14 @@
     Shell.NavBarIsVisible="False">
 
     <ShellContent
-        Title="Report Bug"
-        ContentTemplate="{DataTemplate reportbug:ReportBugView}"
-        Route="ReportBug" />
-
-    <ShellContent
         Title="Sign Up"
         ContentTemplate="{DataTemplate signup:SignUpView}"
         Route="SignUp" />
+
+    <ShellContent
+        Title="Report Bug"
+        ContentTemplate="{DataTemplate reportbug:ReportBugView}"
+        Route="ReportBug" />
 
     <ShellContent
         Title="Sign In"

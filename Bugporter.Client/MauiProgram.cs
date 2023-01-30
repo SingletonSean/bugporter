@@ -1,8 +1,11 @@
 ﻿using Bugporter.Client.Features.ReportBug;
 using Bugporter.Client.Features.ReportBug.API;
+using Bugporter.Client.Features.SignUp;
 using Bugporter.Client.Pages.ReportBug;
 using Bugporter.Client.Pages.SignIn;
 using Bugporter.Client.Pages.SignUp;
+using Firebase.Auth;
+using Firebase.Auth.Providers;
 using Refit;
 using System.Text.Json;
 
@@ -35,6 +38,16 @@ namespace Bugporter.Client
             builder.Services.AddTransient<SignUpViewModel>();
             builder.Services.AddTransient<SignUpView>(
                 s => new SignUpView(s.GetRequiredService<SignUpViewModel>()));
+
+            new SignUpCommand(new FirebaseAuthClient(new FirebaseAuthConfig()
+            {
+                ApiKey = "AIzaSyCU9W14p8vLLdlLikODcGw-xQl4h6csHPo",
+                AuthDomain = "bugporter-739c9.firebaseapp.com",
+                Providers = new FirebaseAuthProvider[]
+                {
+                    new EmailProvider()
+                },
+            })).Execute(null);
 
             return builder.Build();
         }
