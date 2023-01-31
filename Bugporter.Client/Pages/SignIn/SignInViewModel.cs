@@ -1,4 +1,5 @@
-﻿using Bugporter.Client.Shared.ViewModels;
+﻿using Bugporter.Client.Features.SignIn;
+using Bugporter.Client.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,11 @@ namespace Bugporter.Client.Pages.SignIn
 {
     public class SignInViewModel : ViewModelBase
     {
+        public SignInFormViewModel SignInFormViewModel { get; }
+
+        public SignInViewModel(SignInFormViewModel signInFormViewModel)
+        {
+            SignInFormViewModel = signInFormViewModel;
+        }
     }
 }

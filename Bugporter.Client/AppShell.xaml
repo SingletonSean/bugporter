@@ -15,13 +15,13 @@
         Route="SignUp" />
 
     <ShellContent
-        Title="Report Bug"
-        ContentTemplate="{DataTemplate reportbug:ReportBugView}"
-        Route="ReportBug" />
-
-    <ShellContent
         Title="Sign In"
         ContentTemplate="{DataTemplate signin:SignInView}"
         Route="SignIn" />
+
+    <ShellContent
+        Title="Report Bug"
+        ContentTemplate="{DataTemplate reportbug:ReportBugView}"
+        Route="ReportBug" />
 
 </Shell>

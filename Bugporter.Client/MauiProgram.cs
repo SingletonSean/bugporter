@@ -1,5 +1,6 @@
 ﻿using Bugporter.Client.Features.ReportBug;
 using Bugporter.Client.Features.ReportBug.API;
+using Bugporter.Client.Features.SignIn;
 using Bugporter.Client.Features.SignUp;
 using Bugporter.Client.Pages.ReportBug;
 using Bugporter.Client.Pages.SignIn;
@@ -31,6 +32,7 @@ namespace Bugporter.Client
             builder.Services.AddTransient<ReportBugView>(
                 s => new ReportBugView(s.GetRequiredService<ReportBugViewModel>()));
 
+            builder.Services.AddTransient<SignInFormViewModel>();
             builder.Services.AddTransient<SignInViewModel>();
             builder.Services.AddTransient<SignInView>(
                 s => new SignInView(s.GetRequiredService<SignInViewModel>()));

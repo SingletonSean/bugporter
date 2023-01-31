@@ -3,11 +3,12 @@
     x:Class="Bugporter.Client.Pages.SignIn.SignInView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:signinfeature="clr-namespace:Bugporter.Client.Features.SignIn"
     Title="SignInView">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="SignIn View"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="25" MaximumWidthRequest="800">
+            <Label FontSize="Large" Text="Sign In" />
+            <signinfeature:SignInFormView Margin="0,25,0,0" BindingContext="{Binding SignInFormViewModel}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
