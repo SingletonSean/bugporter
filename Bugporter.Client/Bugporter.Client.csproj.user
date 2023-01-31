@@ -20,6 +20,9 @@
     <MauiXaml Update="Features\ReportBug\ReportBugFormView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Features\SignUp\SignUpFormView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\ReportBug\ReportBugView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

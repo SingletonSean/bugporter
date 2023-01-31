@@ -3,11 +3,12 @@
     x:Class="Bugporter.Client.Pages.SignUp.SignUpView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:signupfeature="clr-namespace:Bugporter.Client.Features.SignUp"
     Title="SignUpView">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="SignUp View"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="25" MaximumWidthRequest="800">
+            <Label FontSize="Large" Text="Sign Up" />
+            <signupfeature:SignUpFormView Margin="0,25,0,0" BindingContext="{Binding SignUpFormViewModel}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
