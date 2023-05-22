@@ -32,6 +32,8 @@ namespace Bugporter.Client.Features.SignUp
                 await _authClient.CreateUserWithEmailAndPasswordAsync(_viewModel.Email, _viewModel.Password);
 
                 await Application.Current.MainPage.DisplayAlert("Success", "Successfully signed up!", "Ok");
+
+                await Shell.Current.GoToAsync("//SignIn");
             }
             catch (Exception)
             {
