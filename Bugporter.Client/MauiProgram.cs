@@ -1,4 +1,5 @@
-﻿using Bugporter.Client.Features.ReportBug;
+﻿using Bugporter.Client.Entities.Users;
+using Bugporter.Client.Features.ReportBug;
 using Bugporter.Client.Features.ReportBug.API;
 using Bugporter.Client.Features.SignIn;
 using Bugporter.Client.Features.SignUp;
@@ -51,6 +52,7 @@ namespace Bugporter.Client
                     new EmailProvider()
                 }
             }));
+            builder.Services.AddSingleton<CurrentUserStore>();
 
             return builder.Build();
         }

@@ -1,4 +1,5 @@
-﻿using Bugporter.Client.Shared.Commands;
+﻿using Bugporter.Client.Entities.Users;
+using Bugporter.Client.Shared.Commands;
 using Firebase.Auth;
 using System;
 using System.Collections.Generic;
@@ -12,18 +13,27 @@ namespace Bugporter.Client.Features.SignIn
     {
         private readonly SignInFormViewModel _viewModel;
         private readonly FirebaseAuthClient _authClient;
+        private readonly CurrentUserStore _currentUserStore;
 
-        public SignInCommand(SignInFormViewModel viewModel, FirebaseAuthClient authClient)
+        public SignInCommand(
+            SignInFormViewModel viewModel, 
+            FirebaseAuthClient authClient,
+            CurrentUserStore currentUserStore)
         {
             _viewModel = viewModel;
             _authClient = authClient;
+            _currentUserStore = currentUserStore;
         }
 
         protected override async Task ExecuteAsync(object parameter)
         {
             try
             {
-                await _authClient.SignInWithEmailAndPasswordAsync(_viewModel.Email, _viewModel.Password);
+                UserCredential userCredential = await _authClient.SignInWithEmailAndPasswordAsync(
+                    _viewModel.Email, 
+                    _viewModel.Password);
+
+                _currentUserStore.CurrentUser = userCredential.User;
 
                 await Application.Current.MainPage.DisplayAlert("Success", "Successfully signed in!", "Ok");
 
