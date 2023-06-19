@@ -25,9 +25,13 @@ namespace Bugporter.Client
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<CurrentUserAuthHttpMessageHandler>();
             builder.Services
                 .AddRefitClient<IReportBugApiCommand>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:7071/api"));
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:7071/api"))
+                .AddHttpMessageHandler<CurrentUserAuthHttpMessageHandler>();
+
             builder.Services.AddTransient<ReportBugViewModel>();
             builder.Services.AddTransient<ReportBugFormViewModel>();
             builder.Services.AddTransient<ReportBugView>(
