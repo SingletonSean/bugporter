@@ -1,4 +1,5 @@
-﻿using Bugporter.Client.Shared.ViewModels;
+﻿using Bugporter.Client.Entities.Users;
+using Bugporter.Client.Shared.ViewModels;
 using Firebase.Auth;
 using System;
 using System.Collections.Generic;
@@ -41,9 +42,9 @@ namespace Bugporter.Client.Features.SignIn
 
 		public ICommand SignInCommand { get; }
 
-		public SignInFormViewModel(FirebaseAuthClient authClient)
+		public SignInFormViewModel(FirebaseAuthClient authClient, CurrentUserStore currentUserStore)
 		{
-            SignInCommand = new SignInCommand(this, authClient);
+            SignInCommand = new SignInCommand(this, authClient, currentUserStore);
         }
 	}
 }
