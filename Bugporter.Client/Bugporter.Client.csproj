@@ -49,9 +49,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="appsettings.development.json" />
+	  <None Remove="appsettings.json" />
+	  <None Remove="appsettings.production.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="appsettings.production.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="appsettings.development.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="FirebaseAuthentication.net" Version="4.0.1" />
 	  <PackageReference Include="Refit" Version="6.3.2" />
 	  <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
