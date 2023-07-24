@@ -71,9 +71,22 @@ namespace Bugporter.Client
 
         private static void AddAppSettings(this MauiAppBuilder builder)
         {
+            builder.AddJsonSettings("appsettings.json");
+
+#if DEBUG
+            builder.AddJsonSettings("appsettings.development.json");
+#endif
+
+#if !DEBUG
+            builder.AddJsonSettings("appsettings.production.json");
+#endif
+        }
+
+        private static void AddJsonSettings(this MauiAppBuilder builder, string fileName)
+        {
             using Stream stream = Assembly
                 .GetExecutingAssembly()
-                .GetManifestResourceStream("Bugporter.Client.appsettings.json");
+                .GetManifestResourceStream($"Bugporter.Client.{fileName}");
 
             if (stream != null)
             {
