@@ -8,7 +8,9 @@ using Bugporter.Client.Pages.SignIn;
 using Bugporter.Client.Pages.SignUp;
 using Firebase.Auth;
 using Firebase.Auth.Providers;
+using Firebase.Auth.Repository;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Maui.Storage;
 using Refit;
 using System.Reflection;
 using System.Text.Json;
@@ -55,14 +57,18 @@ namespace Bugporter.Client
 
             string firebaseApiKey = builder.Configuration.GetValue<string>("FIREBASE_API_KEY");
             string firebaseAuthDomain = builder.Configuration.GetValue<string>("FIREBASE_AUTH_DOMAIN");
-            builder.Services.AddSingleton(new FirebaseAuthClient(new FirebaseAuthConfig()
+
+            builder.Services.AddSingleton(SecureStorage.Default);
+            builder.Services.AddSingleton<IUserRepository, SecureStorageUserRepository>();
+            builder.Services.AddSingleton(services => new FirebaseAuthClient(new FirebaseAuthConfig()
             {
                 ApiKey = firebaseApiKey,
                 AuthDomain = firebaseAuthDomain,
                 Providers = new FirebaseAuthProvider[]
                 {
                     new EmailProvider()
-                }
+                },
+                UserRepository = services.GetRequiredService<IUserRepository>()
             }));
             builder.Services.AddSingleton<CurrentUserStore>();
 
